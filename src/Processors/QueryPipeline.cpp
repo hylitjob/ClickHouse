@@ -72,6 +72,12 @@ void QueryPipeline::init(Pipe pipe_)
     pipe = std::move(pipe_);
 }
 
+void QueryPipeline::reset()
+{
+    Pipe pipe_to_destroy(std::move(pipe));
+    *this = QueryPipeline();
+}
+
 void QueryPipeline::addSimpleTransform(const Pipe::ProcessorGetter & getter)
 {
     checkInitializedAndNotCompleted();
