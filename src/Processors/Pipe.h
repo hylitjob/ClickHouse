@@ -73,8 +73,8 @@ public:
     using ProcessorGetterWithStreamKind = std::function<ProcessorPtr(const Block & header, StreamType stream_type)>;
 
     /// Add transform with single input and single output for each port.
-    void addSimpleTransform(const ProcessorGetter & port);
-    void addSimpleTransform(const ProcessorGetterWithStreamKind & port);
+    void addSimpleTransform(const ProcessorGetter & getter);
+    void addSimpleTransform(const ProcessorGetterWithStreamKind & getter);
 
     using Transformer = std::function<Processors(OutputPortRawPtrs ports)>;
 
